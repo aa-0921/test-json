@@ -25,7 +25,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.member);
+    console.log("this.state.member", this.state.member);
     return (
       <div>
         <button onClick={this.getJson}>Get Json</button>
@@ -35,9 +35,13 @@ class App extends React.Component {
   }
 
   getJson = () => {
-    const url = "https://api.myjson.com/bins/159wqn";
+    // const url = "https://api.myjson.com/bins/159wqn";
+    // https://zipcloud.ibsnet.co.jp/api/search
+    // const url = "https://zipcloud.ibsnet.co.jp/api/search?2700032";
+    const url = "http://localhost:3000/member";
 
     axios.get(url).then((res) => {
+      console.log("res.data", res.data);
       this.setState(res.data);
     });
   };
