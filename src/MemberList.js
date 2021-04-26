@@ -1,12 +1,12 @@
-// import "./App.css";
-import "./assets/App.css";
+// import "./MemberList.css";
+import "./assets/MemberList.css";
 
 import React, { useState } from "react";
 import axios from "axios";
 
 // console.log("this.state.member", this.state.member);
 
-export const App = () => {
+export const MemberList = () => {
   const [member, setMember] = useState([]);
 
   const getJson = () => {

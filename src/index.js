@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./assets/index.css";
-import { App } from "./App";
+import { MemberList } from "./MemberList";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   // <React.StrictMode>
-  <App />,
+  <MemberList />,
   // </React.StrictMode>,
   document.getElementById("root")
 );
