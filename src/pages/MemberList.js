@@ -1,10 +1,9 @@
-// import "./MemberList.css";
-import "./assets/MemberList.css";
+// import "./App.css";
+// import "./assets/App.css";
+import "../assets/App.css";
 
 import React, { useState } from "react";
 import axios from "axios";
-
-// console.log("this.state.member", this.state.member);
 
 export const MemberList = () => {
   const [member, setMember] = useState([]);
@@ -21,21 +20,21 @@ export const MemberList = () => {
     });
   };
 
-  const memberList = (list) => {
-    const memberList = list.map((member, index) => {
+  const App = (list) => {
+    const App = list.map((member, index) => {
       return (
         <li key={index}>
           {member.name} {member.age}
         </li>
       );
     });
-    return <ul>{memberList}</ul>;
+    return <ul>{App}</ul>;
   };
 
   return (
     <div>
       <button onClick={getJson}>Get Json</button>
-      {memberList(member)}
+      {App(member)}
     </div>
   );
 };
