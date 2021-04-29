@@ -9,14 +9,20 @@ export const PhotoList = () => {
   //検索フォームの文字列
   const [text, setText] = useState("");
   //今なんの検索文字列で検索しているか
-  const [query, setQuery] = useState("apple");
+  const [query, setQuery] = useState("girl");
 
   useEffect(() => {
     console.log("useEffectが走りました");
     console.log(process.env.REACT_APP_CLIENT_ID);
 
+    //表示するページ数をランダムに
+    var min = 1;
+    var max = 5;
+    var page_num = Math.floor(Math.random() * (max + 1 - min)) + min;
+
     fetch(
-      `https://api.unsplash.com/search/photos?query=${query}&client_id=${process.env.REACT_APP_CLIENT_ID}`
+      `https://api.unsplash.com/search/photos?query=${query}&page=${page_num}&client_id=${process.env.REACT_APP_CLIENT_ID}` // `https://api.unsplash.com/search/photos?query=${query}&client_id=${process.env.REACT_APP_CLIENT_ID}`
+      // `https://api.unsplash.com/search/collections?query=${query}&page="5"&client_id=${process.env.REACT_APP_CLIENT_ID}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -53,13 +59,23 @@ export const PhotoList = () => {
                 <Card.Body>
                   <Card.Title>{image.alt_description}</Card.Title>
                   <Card.Text>
-                    This is a longer card with supporting text below as a
-                    natural lead-in to additional content. This content is a
-                    little bit longer.
-                  </Card.Text>
-                  <Card.Text>
                     <Tags image={image} />
                   </Card.Text>
+                  <Card.Text>{image.user.bio}</Card.Text>
+                  <Card.Text>
+                    <a href={image.user.portfolio_url}>
+                      {image.user.portfolio_url}
+                    </a>
+                  </Card.Text>
+
+                  <Card.Text>{image.likes}</Card.Text>
+                  <Card.Text>
+                    <a href={image.links.html}>{image.links.html}</a>
+                  </Card.Text>
+                  <Card.Img
+                    variant="bottom"
+                    src={image.user.profile_image.large}
+                  />
                 </Card.Body>
               </Card>
             </div>
