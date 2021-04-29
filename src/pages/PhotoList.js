@@ -1,7 +1,7 @@
 import "../assets/App.css";
 
 import React, { useState, useEffect } from "react";
-import { Button, CardColumns, Card } from "react-bootstrap";
+import { Button, CardColumns, Card, Form, Image } from "react-bootstrap";
 import { Tags } from "../components/Tags";
 
 export const PhotoList = () => {
@@ -41,14 +41,16 @@ export const PhotoList = () => {
   return (
     <div className="App">
       <div className="main">
-        <form onSubmit={onSubmit}>
-          <input
+        <Form onSubmit={onSubmit}>
+          <Form.Control
+            size="lg"
             type="text"
             onChange={(e) => setText(e.target.value)}
             value={text}
+            placeholder="Large text"
           />
-        </form>
-        <Button type="submit">Search</Button>
+          <Button type="submit">Search</Button>
+        </Form>
       </div>
       <div className="container">
         <CardColumns>
@@ -72,10 +74,15 @@ export const PhotoList = () => {
                   <Card.Text>
                     <a href={image.links.html}>{image.links.html}</a>
                   </Card.Text>
-                  <Card.Img
+                  <Image
+                    src={image.user.profile_image.large}
+                    rounded
+                    className="w-16 h-16"
+                  />
+                  {/* <Card.Img
                     variant="bottom"
                     src={image.user.profile_image.large}
-                  />
+                  /> */}
                 </Card.Body>
               </Card>
             </div>
