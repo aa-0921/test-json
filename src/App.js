@@ -1,12 +1,12 @@
 import "./assets/App.css";
 import React from "react";
-import { MemberList } from "./pages/MemberList";
+// import { MemberList } from "./pages/MemberList";
 import { PhotoList } from "./pages/PhotoList";
 
 export const App = () => {
   return (
     <div>
-      <MemberList />
+      {/* <MemberList /> */}
       <PhotoList />
     </div>
   );
