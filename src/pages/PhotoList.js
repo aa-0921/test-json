@@ -1,8 +1,8 @@
 import "../assets/App.css";
 
 import React, { useState, useEffect } from "react";
-
-import { Button, Card } from "react-bootstrap";
+import { Button, CardColumns, Card } from "react-bootstrap";
+import { Tags } from "../components/Tags";
 
 export const PhotoList = () => {
   const [images, setImages] = useState([]);
@@ -34,8 +34,6 @@ export const PhotoList = () => {
 
   return (
     <div className="App">
-      {/* <Button> ボタンだよ </Button> */}
-
       <div className="main">
         <form onSubmit={onSubmit}>
           <input
@@ -44,22 +42,31 @@ export const PhotoList = () => {
             value={text}
           />
         </form>
-        <button type="submit">Search</button>
+        <Button type="submit">Search</Button>
+
+        {/* <button>Search</button> */}
       </div>
       <div className="container">
-        {images.map((image) => (
-          <Card>
-            <Card.Img variant="top" src={image.urls.regular} />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        ))}
+        <CardColumns>
+          {images.map((image) => (
+            <div key={image.id}>
+              <Card>
+                <Card.Img variant="top" src={image.urls.regular} />
+                <Card.Body>
+                  <Card.Title>{image.alt_description}</Card.Title>
+                  <Card.Text>
+                    This is a longer card with supporting text below as a
+                    natural lead-in to additional content. This content is a
+                    little bit longer.
+                  </Card.Text>
+                  <Card.Text>
+                    <Tags image={image} />
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </div>
+          ))}
+        </CardColumns>
       </div>
     </div>
   );
