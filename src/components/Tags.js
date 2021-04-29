@@ -15,11 +15,8 @@ export const Tags = (props) => {
   return (
     <React.Fragment>
       {props.image.tags.map((tag, index) => (
-        <Badge key={index} pill variant="secondary">
-          {"  "}
-
+        <Badge key={index} pill variant="secondary" className="mx-1">
           {tag.title}
-          {"  "}
         </Badge>
       ))}
     </React.Fragment>
