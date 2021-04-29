@@ -3,7 +3,7 @@ import "../assets/App.css";
 // import React, { useState, useEffect } from "react";
 import React from "react";
 
-// import { Button, CardColumns, Card } from "react-bootstrap";
+import { Badge } from "react-bootstrap";
 
 export const Tags = (props) => {
   // const [images, setImages] = useState([]);
@@ -13,10 +13,15 @@ export const Tags = (props) => {
   // const [query, setQuery] = useState("apple");
 
   return (
-    <div className="App">
+    <React.Fragment>
       {props.image.tags.map((tag, index) => (
-        <div key={index}>{tag.title}</div>
+        <Badge key={index} pill variant="secondary">
+          {"  "}
+
+          {tag.title}
+          {"  "}
+        </Badge>
       ))}
-    </div>
+    </React.Fragment>
   );
 };

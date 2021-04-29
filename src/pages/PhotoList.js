@@ -43,8 +43,6 @@ export const PhotoList = () => {
           />
         </form>
         <Button type="submit">Search</Button>
-
-        {/* <button>Search</button> */}
       </div>
       <div className="container">
         <CardColumns>
