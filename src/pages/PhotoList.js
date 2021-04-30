@@ -9,7 +9,7 @@ export const PhotoList = () => {
   //検索フォームの文字列
   const [text, setText] = useState("");
   //今なんの検索文字列で検索しているか
-  const [query, setQuery] = useState("girl");
+  const [query, setQuery] = useState("resort");
 
   useEffect(() => {
     console.log("useEffectが走りました");
@@ -63,26 +63,25 @@ export const PhotoList = () => {
                   <Card.Text>
                     <Tags image={image} />
                   </Card.Text>
-                  <Card.Text>{image.user.bio}</Card.Text>
-                  <Card.Text>
-                    <a href={image.user.portfolio_url}>
-                      {image.user.portfolio_url}
-                    </a>
-                  </Card.Text>
 
                   <Card.Text>{image.likes}</Card.Text>
                   <Card.Text>
-                    <a href={image.links.html}>{image.links.html}</a>
+                    <a href={image.links.html}>Link Unsplash</a>
                   </Card.Text>
-                  <Image
-                    src={image.user.profile_image.large}
-                    rounded
-                    className="w-16 h-16"
-                  />
-                  {/* <Card.Img
-                    variant="bottom"
-                    src={image.user.profile_image.large}
-                  /> */}
+
+                  <div className="flex items-center">
+                    <Image
+                      src={image.user.profile_image.large}
+                      rounded
+                      className="w-16 h-16"
+                    />
+                    <p className="text-center py-4 px-4"> {image.user.name}</p>
+                  </div>
+
+                  <Card.Text>{image.user.bio}</Card.Text>
+                  <Card.Text>
+                    <a href={image.user.portfolio_url}>portfolio url</a>
+                  </Card.Text>
                 </Card.Body>
               </Card>
             </div>
