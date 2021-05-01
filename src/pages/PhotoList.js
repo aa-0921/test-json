@@ -55,22 +55,20 @@ export const PhotoList = () => {
   const onSubmit = (e) => {
     e.preventDefault(); //submitボタンにもともと備わっている画面遷移を打ち消す
     setQuery(text); //inputタグに入れられた文字が入る
-
+    notify(text);
     setText(""); //フォームはまっさらな状態に戻したい
     console.log("onSubmitが呼ばれました。");
   };
 
-  // const notify = (text) => {
-  //   toast(`${text}で検索しました`, {
-  //     position: "top-center",
-  //     autoClose: 2000,
-  //     hideProgressBar: true,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //   });
-  // };
+  const notify = (text) => {
+    toast(`${text}で検索しました`, {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      progress: undefined,
+    });
+  };
 
   const handleModalSubmit = (image) => {
     console.log("handleModalSubmit内image：：：：", image);
@@ -80,11 +78,9 @@ export const PhotoList = () => {
 
   return (
     <div className="text-center">
-      {/* <button onClick={notify}>Notify !</button> */}
-
-      <div className="container">
-        <div className="main">
-          <Form onSubmit={() => onSubmit()}>
+      <div className="container flex flex-col items-center">
+        <div className="form-block w-1/2 my-4">
+          <Form onSubmit={onSubmit}>
             <Form.Control
               size="lg"
               type="text"
@@ -92,16 +88,16 @@ export const PhotoList = () => {
               value={text}
               placeholder="Search text"
             />
-            <Button type="submit">Search</Button>
+            <Button type="submit" className="my-2">
+              Search
+            </Button>
           </Form>
         </div>
         <CardColumns>
           {images.map((image) => (
             <div key={image.id}>
               <Card>
-                {/* <Card.Img variant="top" src={image.urls.regular} /> */}
                 <div onClick={() => handleModalSubmit(image)} variant="light">
-                  {/* detail */}
                   <Card.Img variant="top" src={image.urls.regular} />
                 </div>
               </Card>

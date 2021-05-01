@@ -7,7 +7,7 @@ import { Tags } from "../components/Tags";
 export const VerticallyCenteredModal = (props) => {
   // console.log("props.clickedImage.urls", props.clickedImage.urls);
   console.log("props.clickedImage", props.clickedImage);
-  console.log("props.clickedImage", props.clickedImage.urls.regular);
+  // console.log("props.clickedImage", props.clickedImage.urls.regular);
 
   return (
     <Modal
@@ -18,11 +18,6 @@ export const VerticallyCenteredModal = (props) => {
       dialogClassName="modal-big h-auto flex align-center"
       contentClassName="modal-content h-auto"
     >
-      {/* <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
-        </Modal.Title>
-      </Modal.Header> */}
       <Modal.Body className="modal-body h-auto">
         <Image
           src={props.clickedImage.urls.regular}

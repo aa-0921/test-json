@@ -15,7 +15,7 @@ export const Toast = () => {
         rtl={false}
         pauseOnFocusLoss
         draggable
-        pauseOnHover
+        pauseOnHover={false}
       />
     </div>
   );
