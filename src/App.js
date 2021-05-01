@@ -7,7 +7,9 @@ export const App = () => {
   return (
     <div>
       {/* <MemberList /> */}
-      <PhotoList />
+      <React.StrictMode>
+        <PhotoList />
+      </React.StrictMode>
     </div>
   );
 };

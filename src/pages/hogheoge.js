@@ -1,0 +1,1 @@
+hogehoge = {"metadata_key_id"=>"35caee83-d643-4312-925e-b8b956c87fd4", "type"=>"user", "values"=>[<ActionController::Parameters {"id"=>"3fd91f06-fd06-408a-9a4c-266bf789bd30", "value"=>"20:02", "target_id"=>"58b8f57a-4621-4490-9b1a-e79b6751b889"} permitted: true>]}

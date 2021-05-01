@@ -1,0 +1,12 @@
+.modal-body {
+  height: 90vh;
+}
+
+.modal-content {
+  width: auto;
+}
+
+.fade {
+  display: flex !important;
+  align-items: center;
+}
