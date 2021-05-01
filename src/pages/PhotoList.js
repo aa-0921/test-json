@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Button, CardColumns, Card, Form } from "react-bootstrap";
 import { VerticallyCenteredModal } from "../components/VerticallyCenteredModal";
 import { Toast } from "../components/Toast";
+import { toast } from "react-toastify";
 
 export const PhotoList = () => {
   const [images, setImages] = useState([]);
@@ -12,11 +13,6 @@ export const PhotoList = () => {
   //今なんの検索文字列で検索しているか
   const [query, setQuery] = useState("resort");
   const [modalShow, setModalShow] = useState(false);
-  // const [clickedImage, setClickedImage] = useState({
-  //   urls: {},
-  // });
-  // const [clickedImage, setClickedImage] = useState();
-
   const [clickedImage, setClickedImage] = useState({
     alt_description: "",
     likes: "",
@@ -59,30 +55,36 @@ export const PhotoList = () => {
   const onSubmit = (e) => {
     e.preventDefault(); //submitボタンにもともと備わっている画面遷移を打ち消す
     setQuery(text); //inputタグに入れられた文字が入る
+
     setText(""); //フォームはまっさらな状態に戻したい
     console.log("onSubmitが呼ばれました。");
   };
 
+  // const notify = (text) => {
+  //   toast(`${text}で検索しました`, {
+  //     position: "top-center",
+  //     autoClose: 2000,
+  //     hideProgressBar: true,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //   });
+  // };
+
   const handleModalSubmit = (image) => {
-    // e.preventDefault(); //submitボタンにもともと備わっている画面遷移を打ち消す
-    // setQuery(text); //inputタグに入れられた文字が入る
-    // setText(""); //フォームはまっさらな状態に戻したい
-    // console.log("onSubmitが呼ばれました。");
-    // debugger;
     console.log("handleModalSubmit内image：：：：", image);
     setClickedImage(image);
     setModalShow(true);
   };
 
-  // useEffect(() => {
-  //   setClickedImage(image);
-  // }, [modalShow]);
-
   return (
     <div className="text-center">
+      {/* <button onClick={notify}>Notify !</button> */}
+
       <div className="container">
         <div className="main">
-          <Form onSubmit={() => onSubmit}>
+          <Form onSubmit={() => onSubmit()}>
             <Form.Control
               size="lg"
               type="text"
