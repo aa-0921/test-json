@@ -1,3 +1,9 @@
+body {
+  /* background-color: #faf8ff; */
+  background-color: #eeeeee;
+  /* background-color: #e3e0f3; */
+}
+
 .modal-body {
   height: 90vh;
 }

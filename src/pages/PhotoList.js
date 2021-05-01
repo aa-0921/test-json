@@ -25,7 +25,7 @@ export const PhotoList = () => {
     var page_num = Math.floor(Math.random() * (max + 1 - min)) + min;
 
     fetch(
-      `https://api.unsplash.com/search/photos?query=${query}&page=${page_num}&client_id=${process.env.REACT_APP_CLIENT_ID}` // `https://api.unsplash.com/search/photos?query=${query}&client_id=${process.env.REACT_APP_CLIENT_ID}`
+      `https://api.unsplash.com/search/photos?query=${query}&page=${page_num}&per_page=30&client_id=${process.env.REACT_APP_CLIENT_ID}` // `https://api.unsplash.com/search/photos?query=${query}&client_id=${process.env.REACT_APP_CLIENT_ID}`
       // `https://api.unsplash.com/search/collections?query=${query}&page="5"&client_id=${process.env.REACT_APP_CLIENT_ID}`
     )
       .then((response) => response.json())
@@ -79,7 +79,7 @@ export const PhotoList = () => {
         <CardColumns>
           {images.map((image) => (
             <div key={image.id}>
-              <Card>
+              <Card className="border-none">
                 <div onClick={() => handleModalSubmit(image)} variant="light">
                   <Card.Img variant="top" src={image.urls.regular} />
                 </div>
