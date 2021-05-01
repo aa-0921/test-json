@@ -15,14 +15,15 @@ export const VerticallyCenteredModal = (props) => {
       size="xl"
       aria-labelledby="contained-modal-title-vcenter"
       centered
-      dialogClassName="modal-big h-10/12 flex align-center"
+      dialogClassName="modal-big h-auto flex align-center"
+      contentClassName="modal-content h-auto"
     >
       {/* <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           Modal heading
         </Modal.Title>
       </Modal.Header> */}
-      <Modal.Body className="modal-body">
+      <Modal.Body className="modal-body h-auto">
         <Image
           src={props.clickedImage.urls.regular}
           className="max-h-full m-0"
