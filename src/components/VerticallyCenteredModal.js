@@ -33,17 +33,19 @@ export const VerticallyCenteredModal = (props) => {
             <Accordion.Collapse eventKey="0">
               <Card.Body className="p-0">
                 <Card.Title className="p-4 border-b-2">
-                  <h1 className="mb-3">{props.clickedImage.alt_description}</h1>
+                  <label className="mb-3 block">
+                    {props.clickedImage.alt_description}
+                  </label>
                   <Tags image={props.clickedImage} />
                 </Card.Title>
                 <Card.Text className="pt-2 pl-4">
-                  <h1>LIKE:{props.clickedImage.likes}</h1>
+                  <label>LIKE:{props.clickedImage.likes}</label>
                 </Card.Text>
                 <Card.Text className="pt-2 pl-4">
                   <a href={props.clickedImage.links.html}>Link Unsplash</a>
                 </Card.Text>
 
-                <div className="flex items-center pl-4 mt-4">
+                <div className="modal-profile flex items-center pl-4 mt-4">
                   <Image
                     src={props.clickedImage.user.profile_image.large}
                     rounded
@@ -55,9 +57,9 @@ export const VerticallyCenteredModal = (props) => {
                   </p>
                 </div>
 
-                <Card.Text className="pl-4 mt-1">
-                  <Alert variant="light">{props.clickedImage.user.bio}</Alert>
-                </Card.Text>
+                <Alert variant="light" className="mt-1 ml-4">
+                  {"< " + props.clickedImage.user.bio}
+                </Alert>
                 <Card.Text className="pl-4">
                   <a href={props.clickedImage.user.portfolio_url}>
                     portfolio url

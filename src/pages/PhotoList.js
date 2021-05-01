@@ -13,24 +13,7 @@ export const PhotoList = () => {
   //今なんの検索文字列で検索しているか
   const [query, setQuery] = useState("resort");
   const [modalShow, setModalShow] = useState(false);
-  const [clickedImage, setClickedImage] = useState({
-    alt_description: "",
-    likes: "",
-    links: {
-      html: "",
-    },
-    user: {
-      profile_image: {
-        large: "",
-      },
-      name: "",
-      bio: "",
-      portfolio_url: "",
-    },
-    urls: {
-      regular: "",
-    },
-  });
+  const [clickedImage, setClickedImage] = useState(undefined);
 
   useEffect(() => {
     console.log("useEffectが走りました");
@@ -104,11 +87,17 @@ export const PhotoList = () => {
             </div>
           ))}
         </CardColumns>
-        <VerticallyCenteredModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-          clickedImage={clickedImage}
-        />
+        {/* clickedImageの有無によって表示を分岐
+これによって、clickedImage内のhashでundefinedのエラーがでない */}
+        {clickedImage ? (
+          <VerticallyCenteredModal
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            clickedImage={clickedImage}
+          />
+        ) : (
+          <></>
+        )}
         <Toast />
       </div>
     </div>
