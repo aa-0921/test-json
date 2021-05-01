@@ -3,6 +3,7 @@ import "../assets/App.css";
 import React, { useState, useEffect } from "react";
 import { Button, CardColumns, Card, Form } from "react-bootstrap";
 import { VerticallyCenteredModal } from "../components/VerticallyCenteredModal";
+import { Toast } from "../components/Toast";
 
 export const PhotoList = () => {
   const [images, setImages] = useState([]);
@@ -110,6 +111,7 @@ export const PhotoList = () => {
           onHide={() => setModalShow(false)}
           clickedImage={clickedImage}
         />
+        <Toast />
       </div>
     </div>
   );
